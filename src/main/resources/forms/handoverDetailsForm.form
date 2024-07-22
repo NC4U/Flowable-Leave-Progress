@@ -1,0 +1,20 @@
+{
+  "id": "handoverDetailsForm",
+  "name": "Handover Details Form",
+  "fields": [
+    {
+      "id": "handoverPerson",
+      "name": "Handover Person",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter the person to whom you are handing over the work"
+    },
+    {
+      "id": "handoverTasks",
+      "name": "Handover Tasks",
+      "type": "text",
+      "required": true,
+      "placeholder": "placeholder"
+    }
+  ]
+}

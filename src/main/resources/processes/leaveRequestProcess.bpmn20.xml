@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:flowable="http://flowable.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.flowable.org/processdef">
+  <process id="leaveRequestProcess" name="Leave Request Process" isExecutable="true">
+    <startEvent id="startEvent" name="Start"/>
+    <userTask id="userTaskEnterLeaveRequest" name="Enter Leave Request">
+      <extensionElements>
+        <flowable:formKey>leaveRequestForm</flowable:formKey>
+      </extensionElements>
+    </userTask>
+    <callActivity id="callActivityHandoverDetails" name="Enter Handover Details" calledElement="handoverDetailsProcess"/>
+    <userTask id="userTaskHandoverAcceptance" name="Handover Acceptance">
+      <extensionElements>
+        <flowable:formKey>handoverAcceptanceForm</flowable:formKey>
+      </extensionElements>
+    </userTask>
+    <userTask id="userTaskLeaveApproval" name="Leave Approval">
+      <extensionElements>
+        <flowable:formKey>leaveApprovalForm</flowable:formKey>
+      </extensionElements>
+    </userTask>
+    <endEvent id="endEvent" name="End"/>
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="userTaskEnterLeaveRequest"/>
+    <sequenceFlow id="flow2" sourceRef="userTaskEnterLeaveRequest" targetRef="callActivityHandoverDetails"/>
+    <sequenceFlow id="flow3" sourceRef="callActivityHandoverDetails" targetRef="userTaskHandoverAcceptance"/>
+    <sequenceFlow id="flow4" sourceRef="userTaskHandoverAcceptance" targetRef="userTaskLeaveApproval"/>
+    <sequenceFlow id="flow5" sourceRef="userTaskLeaveApproval" targetRef="endEvent"/>
+  </process>
+</definitions>

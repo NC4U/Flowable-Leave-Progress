@@ -1,0 +1,19 @@
+{
+  "id": "leaveApprovalForm",
+  "name": "Leave Approval Form",
+  "fields": [
+    {
+      "id": "approvalGranted",
+      "name": "Approval Granted",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "comments",
+      "name": "Comments",
+      "type": "text",
+      "required": false,
+      "placeholder": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "handoverAcceptanceForm",
+  "name": "Handover Acceptance Form",
+  "fields": [
+    {
+      "id": "handoverAccepted",
+      "name": "Handover Accepted",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "id": "comments",
+      "name": "Comments",
+      "type": "text",
+      "required": false,
+      "placeholder": "placeholder"
+    }
+  ]
+}

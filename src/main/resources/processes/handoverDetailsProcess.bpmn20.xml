@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:flowable="http://flowable.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.flowable.org/processdef">
+    <process id="handoverDetailsProcess" name="Handover Details Process" isExecutable="true">
+        <startEvent id="startEvent" name="Start"/>
+        <userTask id="userTaskEnterHandoverDetails" name="Enter Handover Details">
+            <extensionElements>
+                <flowable:formKey>handoverDetailsForm</flowable:formKey>
+            </extensionElements>
+        </userTask>
+        <endEvent id="endEvent" name="End"/>
+        <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="userTaskEnterHandoverDetails"/>
+        <sequenceFlow id="flow2" sourceRef="userTaskEnterHandoverDetails" targetRef="endEvent"/>
+    </process>
+</definitions>
